@@ -135,8 +135,13 @@ public class Pieza{
         }
         }else if (tecla == 38){
             rotarPieza(grid, TAMANOBLOQUE);
+            int giros = 0;
             while (detectaColision(grid, TAMANOBLOQUE)) {
+                if (giros>=4){
+                    this.setPosY(this.getPosY()-TAMANOBLOQUE);
+                }
                 rotarPieza(grid, TAMANOBLOQUE);
+                giros +=1;
             }
         }else if (tecla == 17){
             while (!detectaColision(grid, TAMANOBLOQUE)) {
